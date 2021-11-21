@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_21_123036) do
+ActiveRecord::Schema.define(version: 2021_11_21_125050) do
 
   create_table "authors", force: :cascade do |t|
     t.string "first_name"
@@ -23,6 +23,8 @@ ActiveRecord::Schema.define(version: 2021_11_21_123036) do
   create_table "book_orders", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "order_id"
+    t.integer "book_id"
   end
 
   create_table "books", force: :cascade do |t|
@@ -34,6 +36,8 @@ ActiveRecord::Schema.define(version: 2021_11_21_123036) do
     t.integer "views"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "supplier_id"
+    t.integer "author_id"
   end
 
   create_table "customers", force: :cascade do |t|
@@ -57,6 +61,7 @@ ActiveRecord::Schema.define(version: 2021_11_21_123036) do
     t.decimal "total"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "customer_id"
   end
 
   create_table "reviews", force: :cascade do |t|
@@ -66,6 +71,8 @@ ActiveRecord::Schema.define(version: 2021_11_21_123036) do
     t.integer "state"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "customer_id"
+    t.integer "book_id"
   end
 
   create_table "suppliers", force: :cascade do |t|
